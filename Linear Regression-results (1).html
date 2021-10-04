@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html class="ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Linear Regression</title>
+<style>
+/*<![CDATA[*/
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c section > table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c section > pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c div > table,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c div > pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c article > table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c article > pre,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j section > table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j section > pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j div > table,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j div > pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j article > table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j article > pre,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c p.note, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c p.fatal,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j p.note, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j p.fatal,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.c > table.layoutcontainer, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l p.note,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c p.note,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r p.note,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r table, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r pre, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r p.note,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 article, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 aside, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 details, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 figcaption, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 figure, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 footer, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 header, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 hgroup, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 nav, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 section { display: block }
+html.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 { font-size: 100% }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 ul, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 dd { margin: 0 0 0 40px }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 nav ul, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 img { border: 0; vertical-align: middle }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 svg:not(:root) { overflow: hidden }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 figure { margin: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 table { border-collapse: collapse; border-spacing: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p { margin-top: 0; text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h1.heading1 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h2.heading2 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h3.heading3 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h4.heading4 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h5.heading5 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 h6.heading6 { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 span { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 table { margin-bottom: 1em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 td, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 td[class$="fixed"], .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 th[class$="fixed"] { white-space: pre }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 section, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 article { padding-top: 1px; padding-bottom: 8px }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .stacked-value { text-align: left; display: block }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .stacked-cell > .stacked-value, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 td.data > td.data, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 th.data > td.data, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 th.data > th.data, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 td.data > th.data, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 th.header > th.header { border: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .stacked-cell > div.data { border-width: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > p { margin: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch { display: table }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .toc { display: none }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .proc_note_group, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .proc_title_group { margin-bottom: 1em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p.proctitle { margin: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p.note, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p.warning, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p.error, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 p.fatal { display: table }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notebanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warnbanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorbanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalbanner,
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notecontent, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warncontent, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorcontent, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notebanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warnbanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorbanner, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalbanner { padding-right: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body > div > ol li { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .c { text-align: center }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .r { text-align: right }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .l { text-align: left }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .j { text-align: justify }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .d { text-align: right }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .b { vertical-align: bottom }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .m { vertical-align: middle }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .t { vertical-align: top }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 a:active { color: #800080 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch { border: hidden; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > colgroup > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > colgroup, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > * > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer > tfoot { border: none; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .cell, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contentfolder, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contentproclabel, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .data, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph { border: hidden; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading1, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading2, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading3, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading4, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading5, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .indexaction, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutcontainer, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 a:link { color: #0000ff }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list3, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list4, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list5, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list6, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list7, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list8, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem3, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem4, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem5, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem6, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem7, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem8, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output { border: hidden; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pagesproclabel, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > colgroup > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > colgroup, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > * > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip > tfoot { border: none; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter10, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter2, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter3, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter4, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter5, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter6, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter7, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter8, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle10, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle2, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle3, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle4, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle5, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle6, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle7, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle8, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > colgroup > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > colgroup, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > * > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer > tfoot { border: none; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table { border: hidden; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > colgroup > col, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > colgroup, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > * > tr, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > thead, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > tbody, .ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer > tfoot { border: none; }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 a:visited { color: #800080 }
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_83d256df-e632-4733-bc94-2cd1d6ecb4b4 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_83d256df-e632-4733-bc94-2cd1d6ecb4b4" class="c body">
+<h1 class="body toc">Results: Linear Regression</h1>
+<section data-name="Reg" data-sec-type="proc">
+<div id="IDX" class="proc_title_group">
+<p class="c proctitle">Model: MODEL1</p>
+<p class="c proctitle">Dependent Variable: DailyCoolingDegreeDays DailyCoolingDegreeDays</p>
+</div>
+<h1 class="contentprocname toc">The Reg Procedure</h1>
+<section>
+<h1 class="contentfolder toc">MODEL1</h1>
+<section>
+<h1 class="contentfolder toc">Fit</h1>
+<section>
+<h1 class="contentfolder toc">DailyCoolingDegreeDays</h1>
+<article aria-label="Number of Observations">
+<h1 class="contentitem toc">Number of Observations</h1>
+<table class="table" style="border-spacing: 0" aria-label="Number of Observations">
+<caption aria-label="Number of Observations"></caption>
+<colgroup><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">550295</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">8816</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Observations with Missing Values</th>
+<td class="r data">541479</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX1" aria-label="Analysis of Variance">
+<h1 class="contentitem toc">Analysis of Variance</h1>
+<table class="table" style="border-spacing: 0" aria-label="Analysis of Variance">
+<caption aria-label="Analysis of Variance"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="6" scope="colgroup">Analysis of Variance</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Source</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Sum of<br/>Squares</th>
+<th class="r b header" scope="col">Mean<br/>Square</th>
+<th class="r b header" scope="col">F Value</th>
+<th class="r b header" scope="col">Pr&#160;&gt;&#160;F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Model</th>
+<td class="r data">1</td>
+<td class="r data">45606</td>
+<td class="r data">45606</td>
+<td class="r data">6892.25</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Error</th>
+<td class="r data">8814</td>
+<td class="r data">58323</td>
+<td class="r data">6.61704</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Corrected Total</th>
+<td class="r data">8815</td>
+<td class="r data">103929</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX2" aria-label="Fit Statistics">
+<h1 class="contentitem toc">Fit Statistics</h1>
+<table class="table" style="border-spacing: 0" aria-label="Fit Statistics">
+<caption aria-label="Fit Statistics"></caption>
+<colgroup><col/><col/><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Root MSE</th>
+<td class="r data">2.57236</td>
+<th class="rowheader" scope="row">R-Square</th>
+<td class="r data">0.4388</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Dependent Mean</th>
+<td class="r data">1.67729</td>
+<th class="rowheader" scope="row">Adj R-Sq</th>
+<td class="r data">0.4388</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Coeff Var</th>
+<td class="r data">153.36401</td>
+<th class="rowheader" scope="row">&#160;</th>
+<td class="r data">&#160;</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX3" aria-label="Parameter Estimates">
+<h1 class="contentitem toc">Parameter Estimates</h1>
+<table class="table" style="border-spacing: 0" aria-label="Parameter Estimates">
+<caption aria-label="Parameter Estimates"></caption>
+<colgroup><col/><col/><col/></colgroup><colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">Parameter Estimates</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Variable</th>
+<th class="b header" scope="col">Label</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Parameter<br/>Estimate</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="r b header" scope="col">t&#160;Value</th>
+<th class="r b header" scope="col">Pr&#160;&gt;&#160;|t|</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Intercept</th>
+<td class="data">Intercept</td>
+<th class="r data">1</th>
+<td class="r data" style="white-space: nowrap">-5.09526</td>
+<td class="r data">0.08606</td>
+<td class="r data" style="white-space: nowrap">-59.21</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">DailyAverageDryBulbTemperature</th>
+<td class="data">DailyAverageDryBulbTemperature</td>
+<th class="r data">1</th>
+<td class="r data">0.13373</td>
+<td class="r data">0.00161</td>
+<td class="r data">83.02</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<hr class="pagebreak"/>
+<div id="IDX4" class="proc_title_group">
+<p class="c proctitle">Model: MODEL1</p>
+<p class="c proctitle">Dependent Variable: DailyCoolingDegreeDays DailyCoolingDegreeDays</p>
+</div>
+<section>
+<h1 class="contentfolder toc">Observation-wise Statistics</h1>
+<section>
+<h1 class="contentfolder toc">DailyCoolingDegreeDays</h1>
+<section>
+<h1 class="contentfolder toc">Residual Plots</h1>
+<article aria-label="DailyAverageDryBulbTemperature">
+<h1 class="contentitem toc">DailyAverageDryBulbTemperature</h1>
+<map id="/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00068" name="/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00068"><Area shape="poly" alt=" Y = 0" title=" Y = 0" coords="64,335,575,335,575,337,64,337,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 83.42 
+ Residual = 12.727 
+ Count = 1" title=" DailyAverageDryBulbTemperature = 83.42 
+ Residual = 12.727 
+ Count = 1" coords="569,34,576,34,576,41,569,41,569,34,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 83.42 
+ Residual = 11.904 
+ Count = 5" title=" DailyAverageDryBulbTemperature = 83.42 
+ Residual = 11.904 
+ Count = 5" coords="569,53,576,53,576,61,569,61,569,53,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 82.25 
+ Residual = 11.081 
+ Count = 5" title=" DailyAverageDryBulbTemperature = 82.25 
+ Residual = 11.081 
+ Count = 5" coords="562,73,570,73,570,80,562,80,562,73,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 81.07 
+ Residual = 10.258 
+ Count = 16" title=" DailyAverageDryBulbTemperature = 81.07 
+ Residual = 10.258 
+ Count = 16" coords="556,92,563,92,563,99,556,99,556,92,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 79.90 
+ Residual = 9.4344 
+ Count = 19" title=" DailyAverageDryBulbTemperature = 79.90 
+ Residual = 9.4344 
+ Count = 19" coords="550,111,557,111,557,119,550,119,550,111,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 78.72 
+ Residual = 8.6112 
+ Count = 52" title=" DailyAverageDryBulbTemperature = 78.72 
+ Residual = 8.6112 
+ Count = 52" coords="543,131,551,131,551,138,543,138,543,131,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 77.55 
+ Residual = 7.788 
+ Count = 54" title=" DailyAverageDryBulbTemperature = 77.55 
+ Residual = 7.788 
+ Count = 54" coords="537,150,544,150,544,158,537,158,537,150,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 77.55 
+ Residual = 6.6903 
+ Count = 92" title=" DailyAverageDryBulbTemperature = 77.55 
+ Residual = 6.6903 
+ Count = 92" coords="537,176,544,176,544,183,537,183,537,176,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 76.37 
+ Residual = 5.8671 
+ Count = 123" title=" DailyAverageDryBulbTemperature = 76.37 
+ Residual = 5.8671 
+ Count = 123" coords="530,195,538,195,538,203,530,203,530,195,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 75.20 
+ Residual = 5.0439 
+ Count = 155" title=" DailyAverageDryBulbTemperature = 75.20 
+ Residual = 5.0439 
+ Count = 155" coords="524,215,531,215,531,222,524,222,524,215,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 74.02 
+ Residual = 4.2207 
+ Count = 168" title=" DailyAverageDryBulbTemperature = 74.02 
+ Residual = 4.2207 
+ Count = 168" coords="518,234,525,234,525,241,518,241,518,234,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 72.85 
+ Residual = 3.3974 
+ Count = 189" title=" DailyAverageDryBulbTemperature = 72.85 
+ Residual = 3.3974 
+ Count = 189" coords="511,253,519,253,519,261,511,261,511,253,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 71.67 
+ Residual = 2.5742 
+ Count = 196" title=" DailyAverageDryBulbTemperature = 71.67 
+ Residual = 2.5742 
+ Count = 196" coords="505,273,512,273,512,280,505,280,505,273,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 70.50 
+ Residual = 1.4766 
+ Count = 206" title=" DailyAverageDryBulbTemperature = 70.50 
+ Residual = 1.4766 
+ Count = 206" coords="498,299,506,299,506,306,498,306,498,299,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 70.50 
+ Residual = 0.6533 
+ Count = 208" title=" DailyAverageDryBulbTemperature = 70.50 
+ Residual = 0.6533 
+ Count = 208" coords="498,318,506,318,506,325,498,325,498,318,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 69.32 
+ Residual = -0.17 
+ Count = 221" title=" DailyAverageDryBulbTemperature = 69.32 
+ Residual = -0.17 
+ Count = 221" coords="492,337,499,337,499,345,492,345,492,337,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 68.15 
+ Residual = -0.993 
+ Count = 188" title=" DailyAverageDryBulbTemperature = 68.15 
+ Residual = -0.993 
+ Count = 188" coords="486,357,493,357,493,364,486,364,486,357,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 66.97 
+ Residual = -1.816 
+ Count = 169" title=" DailyAverageDryBulbTemperature = 66.97 
+ Residual = -1.816 
+ Count = 169" coords="479,376,487,376,487,383,479,383,479,376,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 65.79 
+ Residual = -2.64 
+ Count = 157" title=" DailyAverageDryBulbTemperature = 65.79 
+ Residual = -2.64 
+ Count = 157" coords="473,395,480,395,480,403,473,403,473,395,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 64.62 
+ Residual = -3.463 
+ Count = 169" title=" DailyAverageDryBulbTemperature = 64.62 
+ Residual = -3.463 
+ Count = 169" coords="466,415,474,415,474,422,466,422,466,415,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 63.44 
+ Residual = -3.463 
+ Count = 318" title=" DailyAverageDryBulbTemperature = 63.44 
+ Residual = -3.463 
+ Count = 318" coords="460,415,467,415,467,422,460,422,460,415,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 62.27 
+ Residual = -3.188 
+ Count = 164" title=" DailyAverageDryBulbTemperature = 62.27 
+ Residual = -3.188 
+ Count = 164" coords="454,408,461,408,461,416,454,416,454,408,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 61.09 
+ Residual = -3.188 
+ Count = 148" title=" DailyAverageDryBulbTemperature = 61.09 
+ Residual = -3.188 
+ Count = 148" coords="447,408,455,408,455,416,447,416,447,408,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 59.92 
+ Residual = -2.914 
+ Count = 125" title=" DailyAverageDryBulbTemperature = 59.92 
+ Residual = -2.914 
+ Count = 125" coords="441,402,448,402,448,409,441,409,441,402,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 58.74 
+ Residual = -2.914 
+ Count = 144" title=" DailyAverageDryBulbTemperature = 58.74 
+ Residual = -2.914 
+ Count = 144" coords="435,402,442,402,442,409,435,409,435,402,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 57.57 
+ Residual = -2.64 
+ Count = 294" title=" DailyAverageDryBulbTemperature = 57.57 
+ Residual = -2.64 
+ Count = 294" coords="428,395,436,395,436,403,428,403,428,395,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 56.39 
+ Residual = -2.365 
+ Count = 168" title=" DailyAverageDryBulbTemperature = 56.39 
+ Residual = -2.365 
+ Count = 168" coords="422,389,429,389,429,396,422,396,422,389,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 55.22 
+ Residual = -2.365 
+ Count = 147" title=" DailyAverageDryBulbTemperature = 55.22 
+ Residual = -2.365 
+ Count = 147" coords="415,389,423,389,423,396,415,396,415,389,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 54.04 
+ Residual = -2.091 
+ Count = 140" title=" DailyAverageDryBulbTemperature = 54.04 
+ Residual = -2.091 
+ Count = 140" coords="409,382,416,382,416,390,409,390,409,382,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 52.87 
+ Residual = -2.091 
+ Count = 157" title=" DailyAverageDryBulbTemperature = 52.87 
+ Residual = -2.091 
+ Count = 157" coords="403,382,410,382,410,390,403,390,403,382,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 51.69 
+ Residual = -1.816 
+ Count = 147" title=" DailyAverageDryBulbTemperature = 51.69 
+ Residual = -1.816 
+ Count = 147" coords="396,376,404,376,404,383,396,383,396,376,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 50.52 
+ Residual = -1.542 
+ Count = 134" title=" DailyAverageDryBulbTemperature = 50.52 
+ Residual = -1.542 
+ Count = 134" coords="390,369,397,369,397,377,390,377,390,369,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 50.52 
+ Residual = -1.816 
+ Count = 165" title=" DailyAverageDryBulbTemperature = 50.52 
+ Residual = -1.816 
+ Count = 165" coords="390,376,397,376,397,383,390,383,390,376,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 49.34 
+ Residual = -1.542 
+ Count = 153" title=" DailyAverageDryBulbTemperature = 49.34 
+ Residual = -1.542 
+ Count = 153" coords="383,369,391,369,391,377,383,377,383,369,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 48.17 
+ Residual = -1.268 
+ Count = 149" title=" DailyAverageDryBulbTemperature = 48.17 
+ Residual = -1.268 
+ Count = 149" coords="377,363,384,363,384,370,377,370,377,363,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 46.99 
+ Residual = -1.268 
+ Count = 162" title=" DailyAverageDryBulbTemperature = 46.99 
+ Residual = -1.268 
+ Count = 162" coords="371,363,378,363,378,370,371,370,371,363,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 45.81 
+ Residual = -0.993 
+ Count = 158" title=" DailyAverageDryBulbTemperature = 45.81 
+ Residual = -0.993 
+ Count = 158" coords="364,357,372,357,372,364,364,364,364,357,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 44.64 
+ Residual = -0.993 
+ Count = 172" title=" DailyAverageDryBulbTemperature = 44.64 
+ Residual = -0.993 
+ Count = 172" coords="358,357,365,357,365,364,358,364,358,357,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 43.46 
+ Residual = -0.719 
+ Count = 378" title=" DailyAverageDryBulbTemperature = 43.46 
+ Residual = -0.719 
+ Count = 378" coords="351,350,359,350,359,358,351,358,351,350,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 42.29 
+ Residual = -0.444 
+ Count = 154" title=" DailyAverageDryBulbTemperature = 42.29 
+ Residual = -0.444 
+ Count = 154" coords="345,344,352,344,352,351,345,351,345,344,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 41.11 
+ Residual = -0.444 
+ Count = 166" title=" DailyAverageDryBulbTemperature = 41.11 
+ Residual = -0.444 
+ Count = 166" coords="339,344,346,344,346,351,339,351,339,344,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 39.94 
+ Residual = -0.17 
+ Count = 159" title=" DailyAverageDryBulbTemperature = 39.94 
+ Residual = -0.17 
+ Count = 159" coords="332,337,340,337,340,345,332,345,332,337,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 38.76 
+ Residual = -0.17 
+ Count = 147" title=" DailyAverageDryBulbTemperature = 38.76 
+ Residual = -0.17 
+ Count = 147" coords="326,337,333,337,333,345,326,345,326,337,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 37.59 
+ Residual = 0.1045 
+ Count = 358" title=" DailyAverageDryBulbTemperature = 37.59 
+ Residual = 0.1045 
+ Count = 358" coords="320,331,327,331,327,338,320,338,320,331,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 36.41 
+ Residual = 0.3789 
+ Count = 158" title=" DailyAverageDryBulbTemperature = 36.41 
+ Residual = 0.3789 
+ Count = 158" coords="313,324,321,324,321,332,313,332,313,324,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 35.24 
+ Residual = 0.3789 
+ Count = 157" title=" DailyAverageDryBulbTemperature = 35.24 
+ Residual = 0.3789 
+ Count = 157" coords="307,324,314,324,314,332,307,332,307,324,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 34.06 
+ Residual = 0.6533 
+ Count = 137" title=" DailyAverageDryBulbTemperature = 34.06 
+ Residual = 0.6533 
+ Count = 137" coords="300,318,308,318,308,325,300,325,300,318,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 32.89 
+ Residual = 0.6533 
+ Count = 161" title=" DailyAverageDryBulbTemperature = 32.89 
+ Residual = 0.6533 
+ Count = 161" coords="294,318,301,318,301,325,294,325,294,318,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 31.71 
+ Residual = 0.9277 
+ Count = 126" title=" DailyAverageDryBulbTemperature = 31.71 
+ Residual = 0.9277 
+ Count = 126" coords="288,311,295,311,295,319,288,319,288,311,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 30.54 
+ Residual = 1.2021 
+ Count = 126" title=" DailyAverageDryBulbTemperature = 30.54 
+ Residual = 1.2021 
+ Count = 126" coords="281,305,289,305,289,312,281,312,281,305,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 30.54 
+ Residual = 0.9277 
+ Count = 128" title=" DailyAverageDryBulbTemperature = 30.54 
+ Residual = 0.9277 
+ Count = 128" coords="281,311,289,311,289,319,281,319,281,311,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 29.36 
+ Residual = 1.2021 
+ Count = 101" title=" DailyAverageDryBulbTemperature = 29.36 
+ Residual = 1.2021 
+ Count = 101" coords="275,305,282,305,282,312,275,312,275,305,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 28.19 
+ Residual = 1.4766 
+ Count = 98" title=" DailyAverageDryBulbTemperature = 28.19 
+ Residual = 1.4766 
+ Count = 98" coords="268,299,276,299,276,306,268,306,268,299,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 27.01 
+ Residual = 1.4766 
+ Count = 97" title=" DailyAverageDryBulbTemperature = 27.01 
+ Residual = 1.4766 
+ Count = 97" coords="262,299,269,299,269,306,262,306,262,299,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 25.83 
+ Residual = 1.751 
+ Count = 83" title=" DailyAverageDryBulbTemperature = 25.83 
+ Residual = 1.751 
+ Count = 83" coords="256,292,263,292,263,300,256,300,256,292,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 24.66 
+ Residual = 1.751 
+ Count = 67" title=" DailyAverageDryBulbTemperature = 24.66 
+ Residual = 1.751 
+ Count = 67" coords="249,292,257,292,257,300,249,300,249,292,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 23.48 
+ Residual = 2.0254 
+ Count = 64" title=" DailyAverageDryBulbTemperature = 23.48 
+ Residual = 2.0254 
+ Count = 64" coords="243,286,250,286,250,293,243,293,243,286,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 23.48 
+ Residual = 1.751 
+ Count = 84" title=" DailyAverageDryBulbTemperature = 23.48 
+ Residual = 1.751 
+ Count = 84" coords="243,292,250,292,250,300,243,300,243,292,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 22.31 
+ Residual = 2.0254 
+ Count = 47" title=" DailyAverageDryBulbTemperature = 22.31 
+ Residual = 2.0254 
+ Count = 47" coords="236,286,244,286,244,293,236,293,236,286,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 21.13 
+ Residual = 2.2998 
+ Count = 43" title=" DailyAverageDryBulbTemperature = 21.13 
+ Residual = 2.2998 
+ Count = 43" coords="230,279,237,279,237,287,230,287,230,279,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 19.96 
+ Residual = 2.2998 
+ Count = 48" title=" DailyAverageDryBulbTemperature = 19.96 
+ Residual = 2.2998 
+ Count = 48" coords="224,279,231,279,231,287,224,287,224,279,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 18.78 
+ Residual = 2.5742 
+ Count = 51" title=" DailyAverageDryBulbTemperature = 18.78 
+ Residual = 2.5742 
+ Count = 51" coords="217,273,225,273,225,280,217,280,217,273,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 17.61 
+ Residual = 2.5742 
+ Count = 28" title=" DailyAverageDryBulbTemperature = 17.61 
+ Residual = 2.5742 
+ Count = 28" coords="211,273,218,273,218,280,211,280,211,273,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 16.43 
+ Residual = 2.8486 
+ Count = 49" title=" DailyAverageDryBulbTemperature = 16.43 
+ Residual = 2.8486 
+ Count = 49" coords="204,266,212,266,212,274,204,274,204,266,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 15.26 
+ Residual = 3.123 
+ Count = 19" title=" DailyAverageDryBulbTemperature = 15.26 
+ Residual = 3.123 
+ Count = 19" coords="198,260,205,260,205,267,198,267,198,260,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 14.08 
+ Residual = 3.123 
+ Count = 19" title=" DailyAverageDryBulbTemperature = 14.08 
+ Residual = 3.123 
+ Count = 19" coords="192,260,199,260,199,267,192,267,192,260,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 12.91 
+ Residual = 3.3974 
+ Count = 14" title=" DailyAverageDryBulbTemperature = 12.91 
+ Residual = 3.3974 
+ Count = 14" coords="185,253,193,253,193,261,185,261,185,253,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 11.73 
+ Residual = 3.3974 
+ Count = 16" title=" DailyAverageDryBulbTemperature = 11.73 
+ Residual = 3.3974 
+ Count = 16" coords="179,253,186,253,186,261,179,261,179,253,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 10.56 
+ Residual = 3.6718 
+ Count = 27" title=" DailyAverageDryBulbTemperature = 10.56 
+ Residual = 3.6718 
+ Count = 27" coords="173,247,180,247,180,254,173,254,173,247,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 9.38 
+ Residual = 3.9462 
+ Count = 12" title=" DailyAverageDryBulbTemperature = 9.38 
+ Residual = 3.9462 
+ Count = 12" coords="166,240,174,240,174,248,166,248,166,240,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 8.21 
+ Residual = 3.9462 
+ Count = 10" title=" DailyAverageDryBulbTemperature = 8.21 
+ Residual = 3.9462 
+ Count = 10" coords="160,240,167,240,167,248,160,248,160,240,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 7.03 
+ Residual = 4.2207 
+ Count = 8" title=" DailyAverageDryBulbTemperature = 7.03 
+ Residual = 4.2207 
+ Count = 8" coords="153,234,161,234,161,241,153,241,153,234,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 5.85 
+ Residual = 4.2207 
+ Count = 6" title=" DailyAverageDryBulbTemperature = 5.85 
+ Residual = 4.2207 
+ Count = 6" coords="147,234,154,234,154,241,147,241,147,234,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 4.68 
+ Residual = 4.4951 
+ Count = 6" title=" DailyAverageDryBulbTemperature = 4.68 
+ Residual = 4.4951 
+ Count = 6" coords="141,228,148,228,148,235,141,235,141,228,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 2.33 
+ Residual = 4.7695 
+ Count = 5" title=" DailyAverageDryBulbTemperature = 2.33 
+ Residual = 4.7695 
+ Count = 5" coords="128,221,135,221,135,229,128,229,128,221,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 1.15 
+ Residual = 5.0439 
+ Count = 2" title=" DailyAverageDryBulbTemperature = 1.15 
+ Residual = 5.0439 
+ Count = 2" coords="121,215,129,215,129,222,121,222,121,215,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -0.02 
+ Residual = 5.0439 
+ Count = 2" title=" DailyAverageDryBulbTemperature = -0.02 
+ Residual = 5.0439 
+ Count = 2" coords="115,215,122,215,122,222,115,222,115,215,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -1.20 
+ Residual = 5.3183 
+ Count = 5" title=" DailyAverageDryBulbTemperature = -1.20 
+ Residual = 5.3183 
+ Count = 5" coords="109,208,116,208,116,216,109,216,109,208,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -2.37 
+ Residual = 5.3183 
+ Count = 2" title=" DailyAverageDryBulbTemperature = -2.37 
+ Residual = 5.3183 
+ Count = 2" coords="102,208,110,208,110,216,102,216,102,208,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -3.55 
+ Residual = 5.5927 
+ Count = 3" title=" DailyAverageDryBulbTemperature = -3.55 
+ Residual = 5.5927 
+ Count = 3" coords="96,202,103,202,103,209,96,209,96,202,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -4.72 
+ Residual = 5.8671 
+ Count = 4" title=" DailyAverageDryBulbTemperature = -4.72 
+ Residual = 5.8671 
+ Count = 4" coords="89,195,97,195,97,203,89,203,89,195,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -7.07 
+ Residual = 6.1415 
+ Count = 2" title=" DailyAverageDryBulbTemperature = -7.07 
+ Residual = 6.1415 
+ Count = 2" coords="77,189,84,189,84,196,77,196,77,189,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -9.42 
+ Residual = 6.4159 
+ Count = 1" title=" DailyAverageDryBulbTemperature = -9.42 
+ Residual = 6.4159 
+ Count = 1" coords="64,182,71,182,71,190,64,190,64,182,"/>
+</map>
+<div class="c">
+<img style="height: 480px; width: 640px" alt="Heat map of residuals by DailyAverageDryBulbTemperature for DailyCoolingDegreeDays." src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAIAAAC6s0uzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO3deXgUVb7/8VPVa3YSEhJIlGUkKGgAWQQREAEFxw0c2WTwgswIeEGYQdHxJ7hddBxGRmcU8Spe4apcdVBGvSPgjmtAQtAZJFEEQgIBQgjZO91dvz9qbtvpJel0Ol1dlffryePTOVRXf/t025+cU6erpMLCQgEAAKLLLITIy8vTugwAADqRffv2yVrXAABAZ0QAAwCgAQIYAAANEMAAAGiAAAYAQAMEMAAAGiCAAQDQAAEMAIAGCGAAADRAAAMAoAECGAAADRDAAABogABGqKTmLBZLv379vv766/D25nQ6ExMTLRZLcXGx/7+aTCZJknbt2hXezmVZliRp3759IW5fWlp6zjnnqPeaOnVqeA8q/LooISFh5syZTqez5Xv5dEWIxTudzltuuSU5OVndPj4+fuLEiYcPHw67eO+HbvnVCVF4vdHRYrMqdE4EMMLkdDqLioouueSSY8eOhbcHRVE8/9XWrFmzjh49qlZy+eWXR2q3dXV1mzdv7t27t9vtbnnLtnZFQ0NDTk7Oxo0bq6ur1XvV19e/9957ffr0+eGHH9pZdngltSr03oim2KwKnQQBjLZ57733FEWpra1dt26dJEkul2vlypVh7MdsNtfW1jY1NeXm5ka8yLb68ccfhRBjx45VFGXJkiXt3JvaRV988cWIESOEEEePHp0zZ04L24fRFZMmTSovLxdCXH/99UVFRUePHt20adOll17apUuXn/3sZ+2sP7ySgmlrb0RHbFaFTqewsFABQqC+YdRPLlV2drYQ4qqrrlJ/raioGDx4sCzLQojk5OSXXnpJbd+wYUNaWpo645ecnLxw4cLGxkZFUSRJ8rwDDxw4oO7NZDLdfPPN6k7y8/M9j3v8+HF1b973euKJJ3JyctSJ06SkpOeff95/m2CP7qFurJIkSVGU6urqMWPGmM1mIYQsyxdeeOGhQ4e8N/7LX/5isVjsdnurXXThhRcKIWw2m/prKAV7bmdmZgohRowYoW5TVFSk7n/Pnj3qNhMnTgz2YrXwFFp9dj5leG7feuut8fHxQoj4+PhNmzapdzlw4MC5554rSZIsy1OmTPF/4VrojWBvmBb26d//wXYSrD281yjYa7F///5W32BAQIWFhQQwQuX9ydXY2PjSSy+pn26//e1v1Q3UDynvMPv++++rqqq8E857J94f8RkZGf5/HbYcwE1NTT57lmW5rKzMe5sWHt3DP4BzcnJ87hIXF1dbW+vZODExUQjRu3fvFrpI9eqrr6qNR48eDaVg79t33HGHEMJisai7mjlzphAiMzNz48aNPn3ir4Wn0OqzCxbA3jxVpaenCz/BAti7N4K9YVrep3//B9tJsPaWqwr2GgV7LUJ5gwEBFRYWMgWNtpkwYYIkSTab7eabb3a73Tab7f777xdC/M///E95ebksyxs3bqyoqBg/fryiKPPmzTt48KCiKJIkzZ07t6CgYNWqVV26dBk3bpz3Prdu3Xry5EkhxD333HPo0KEZM2aEUonZbO7bt++MGTMOHjxYUFBgtVrdbvcbb7zhvU0oj+52u9XB94IFC9xu92uvvXb06FEhxLJly8rLyx9//HFJkurr61esWOG5S319/bZt2w4ePNhqkRdffLF6o6SkJJSCva1cuVKSpKamphdffFEI8c477wghfvnLX5aUlAghZFn2yRiPFp5CKM8umJycnG+++eb5558XQjQ1Ne3bt2/Lli2nTp0SQtx9990HDx6cPHly6L0R7A0Tyj49/R9sJ8HaW60q2GsU7LUI5Q0GBMUIGCHyf/NkZGQUFRWp/zp37lz/Dbp166YoiufzSJKksWPHqqMfxW+o16VLF89jhTgF/cUXXwwcONBut3tGIXfffbfPNsEe3ZsngD1PxLsYdYpyyJAhnj2rWwbrIu8B0KZNm7zrD6Vg79vnnXeeEGLo0KFffPGF+hSqqqo2bNig3lcdPftr4SmE8uyCjYALCgrUu5hMJvVpLl68uNUXLlhvBHvDtLxPn/4PtpMW3o1hv0YBXwsltDcY4I8RMNpM/eS69dZbhRCnTp1SlwIJIdRPSR/V1dVCiA8++OC9994bOnSoEOLjjz/u2bPnjh07vDerr68XQvhP5XlraGjwafn2229HjRpVWFjY0NCgBF+s2+qjt8p/fezChQtDvK+6Qi0+Pj4zMzPEgr3ddtttQgh1aCWEuOCCC5KTk2+88Ub1X6dPnx72Uwjln3x4XmLPK+VwOERrL5w3794I9oYJZZ+e/g+2kxbejS1X1cJrFPC1EJF4g6HTIoARjueee+6CCy5QFOWqq646e/asEEL9+qwkSQ899FBlZeVnn312/fXXDx8+/Ouvv05PT9+3b9+bb775448/pqWluVyue++913tv6krUysrKhx566PDhw9dff713KqifxatXry4qKrrssss8H4t/+ctf3G53enr6yy+/fN111wWsM5RH93H11VcLIc6cObN06dJTp06tWbNm//79QoiRI0e2qYs+/fTTiy66SF1frf69EkrBPpYuXWoymVwul/qZvmzZMiFEcnLy8OHDhRA7d+689NJLP//882PHjr322mtXX311fHz8mTNnWngKkXp2KvVenhdu0qRJweLcvzeCvWFC32cLOwnW3mpVLbxGAV+LMN5gwE+YgkaI1DeMZ+6uuro6ISFBCJGbm6u29OvXz+fd1aVLlwcffND/XTdv3jyl+SSnOpjwoc46BlySU1hY+Pjjj/u3L1261HvPLTy6N+8paCXkZUrBusjHgAED1H8NpWD/hxg2bJi6pdVq9TxQVVVVWlpawId74403Wn4KYS/C8pSkrqBW3wkpKSn+NXhPQQfrjWBvmJb36d//wXYSrL3lqlp4jQK+FiG+wQB/rIJGG6gfLt4Hz7788kt1rm/OnDmKojQ1NV133XU2m00IYTKZsrOzX3311crKypkzZyYmJqrf07DZbNdee616d+8P0z179qhLikwm06233up92O/jjz9OTU1VP/XUtTCeew0ePFiSJLPZPGrUqN69ewsh1OU2nm1aeHRvPgFcXV09evRozxd1BgwYEPCLOsG6yCMhIWH+/PneG7RasP9DbN68Wd3bhAkTvHdVX18/bdo09W8gtXMuvvjiL774otWnEOKzCzGA9+zZk5WVJYQwm81TpkzxPlrcam8EfMO0vE///g+2k2DtYb9GAV+LEN9ggD8CGIhptbW1t99+u/qhH5v/q+bl5U2bNm337t1lZWU33HCDWmp9fX2s7bP9Yv+1gL4UFhZKhYWFeXl5/rMoALRls9nUFUlCiKuuuurdd9/Vth5/brfbYrH4HKMdMWKEuk44dvbZfrH/WkB39u3bxyIsIBbV1dUpiiKEsFgsU6ZMic1PfFmW77///rS0NM8FIW655ZadO3fG2j7bSRevBfSIETAAANHGCBgAAG0QwAAAaIAABgBAAwQwAAAaIIABANCAWesC2uul17bU1NRoXQUAIKq6Z2Zed/VV3i3rX9gY+t1vmzsn0hW1me4DuKamJhb6EQDQQdyKcLl8TyO64f+uI+ltxPvbQ9nhl+OvjEBZ7ab7AAYAQBXSZT5jBseAAQDQACNgAIBB6GsETAADAAxCEZLWJbQBU9AAAGiAETAAIKZJkjDJehrahsjII+CGhgZJkh5++GFPy9tvv33NNdf4b/nUU0/179/fZrNlZWUtXLiwsrJSCLF3794LL7wwgvV89NFHAwYMSEpKuvHGG8+cOdNC49mzZ7dt29arV6/XX3/dc/eKioobb7wxISEhLy/v448/jmBhABDLJCFk2fcnIEWSQvmJbvlBGTmAhRBms/mZZ545fPhwC9usXLnysccee/zxx0+ePPnhhx8eO3Zs/PjxjY2Nka3E6XROmzZt5cqVZWVlNpvtvvvuC9YohJgwYcJ9990nN3+LzZ49Oycn58iRI3/+85///ve/R7Y8ADAAJbSfGGHwADaZTL/73e+WLl0abIPy8vLf//73r7/++qRJk5KTky+44ILXX3+9trb2xRdfVDdYtWpVUlLSqFGjDh06JIRQFGXJkiVdu3ZNT09/6KGHnE5niJWUlpZWVVVNnz49KSlpxowZX3/9dbBGIUR+fn5+fn5ubq7n7ocOHdq9e/cf/vCHrl27jh079tFHHw2rPwDA2KTQfmKCwQNYCLFgwYIjR468++67Af/1ww8/7NOnz7BhwzwtZrN51qxZO3bsEEIUFRVJklRaWnr55Zf/27/9mxBi27Ztn3/++Xfffbdnz55//OMfZ8+e9dxx8+bNUnObN2/2/Gt2dnZmZuZ//dd/VVdXv/TSSyNHjgzWGFBBQUGfPn1uueWW+Pj44cOHf/PNN+3tFwAwHEbAsUWW5aeeeuqOO+4IOKtcUVGRnZ3t09ijR49Tp04JIXr16nX//fcnJyevXLnyq6++On36dEpKyrFjx7766qvMzMzNmzenpaV57jVjxgyluRkzZnj+1Ww2P/LII/PmzUtOTv7000+XLVsWrDGgM2fO7N69+4orrjhx4sS0adOmTp3qcrna2TMAAA0ZP4CFECNGjLjsssvWrFnj/08ZGRllZWU+jWVlZd26dRNCWK1WtcVms6Wnp588eXLkyJHPPPPM+vXrc3Jyli1b5nA4Qqxhz549d911186dO2tqau64447Jkye7XK6AjQHvHh8fP2zYsF/96leJiYm//e1vT58+/cMPP4T6/AGgc2ARVix69NFH161b578a64orrjh06FBBQYGnxeVybd68efLkyUKI2tpaRVGEEPX19adOnVLHytdee+1bb7313Xffff3115u8zgbe8hT0Bx98MGHChFGjRiUkJNx5553FxcXHjh0L2Biw/n79+v3www/qIWdJkoQQFoslUp0DAMbAFHQsysjI+N3vfvfAAw/4tKenp69ateoXv/jFjh07qqurv/vuu2nTpqWmpt58881CiBMnTjz00ENnz55duXLlFVdckZiY+OGHH/7mN785evSoLMtxcXGeIbJobQp65MiR27Zt2717d11d3dq1a7OysrKzswM2Bqx/4MCB3bp1e+CBB86ePfvUU09lZWX17NmzA/oJABAlnSWAhRALFizIycnxb1+xYsW99967bNmy9PT0cePG9ejR491331XHl7179zaZTDk5Ofn5+c8++6wQYujQoU6nc/jw4b179z733HNnzpwZ4qOPGjVq9erVM2bMyMjI2Lp161tvvSVJUsDGgHeXJOm1117bvn17Zmbmpk2bXn31VTnY9+AAoPPS0ypoqbCwMC8vT+sywrf+hY1cDxgAOhv/D//1L2wc+OGHody3cNw4zYNj3759nIoSAGAQsbPAKhQEMAAgprkVxemMnbVTEUMAAwBimyLc7pACWF8pTQADAAyDKWgAAKKOETAAABrQ1yIsvksKAIAGCGAAADTAFDQAINbJckhzywqLsAAAiBRZlqyhBrCeMAUNAIAGGAEDAAyCVdAAAKAVjIABAAahr2PABDAAwDD0NAVNAAMADIIRMAAAWtDTAJgABgAYBSfiAABAA0xBAwCgCUbAAACExe1W/AeyUming2YEDABAmJwuxe32TdJQTwetpwEwAQwAMAp9LcLiVJQAAGiAETAAwCA4BgwAgCb0NAVNAAMADELRU/4SwAAAo9DXIiwCGAAQQyzmzrI6mAAGAMQQqR2DWBZhAQCgCaagAQCIOkbAAABoQU8DYAIYAGAU+loF3VkWmwEAEFMYAQMADIJjwAAAaEJPU9AEMADAIBgBAwCgBT0NgAlgAIBR6GsVNAEMANCGoihnqhv92xPjreGdEZopaAAANMEIGACAqGMEDACAFvQ0ANb6TFilpaWrV6+2WCzLly/3ND799NM2m02SpKysrJKSEg3LAwDoiCKkUH60LvNfNA7gfv36rV692rulpqZm8eLFU6dOPXDggMVi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YIAkSYmJiVu2bBF0YxtdfPHFJpNp/vz5x44d27hxY25urqAPhRAcA+44dXV1cXFx6m01QioqKjStSH9KS0tfffXVRx99VNCfYbn22mvvvvvu9PR0Twvd2FYnT56sra0dO3bs8ePHx40bN2PGDIfDQTe2id1u//Wvf/3888/36NGjrKxs3bp1greiEIIA7jhJSUn19fXq7YaGBiFERkaGphXpzKlTpy666KKbb7559uzZgv5su8WLF1ssllWrVnk30o1tlZSUlJiYuHHjxszMzK1btzqdzo8++ohubJOXX3752WefXbduXXl5+VVXXTVmzBiHw0EfCgK44wwZMqSyslK9vWPHDlmWu3fvrm1JOlJSUnLeeedde+21GzZsUFvoz7Z64403jh49KkmSJElCiF69eq1atYpubKuRI0fW1dWpCaGeAtput9ONbfLKK6/06tVrwYIF3bp1e+uttxoaGgoLC+lDIVgF3WFqa2tNJtOMGTOKiopycnLUpbwIRVFRUWJi4u233+7dSH+2h/i/RVh0Y1u5XC6bzXbZZZcdPXp02rRpNputqamJbmyTdevWybK8cePGkydPXnfddWaz2eVy0Yesgu5YTz31lNVqFUJkZGQcPHhQ63J0Y/To0T5/Jqrt9GfYPAGs0I1t97e//S0hIUEIkZiY+Oabb6qNdGObzJ0712KxCCFSUlL++te/qo2dvA8LCwu5GhIAANHG1ZAAANAGAQwAgAYIYAAANEAAAwCgAQIYAAANEMAAAGiAAAYAQAMEMAAAGiCAAQDQAAEMAIAGCGAAADRAAAMAoAECGLFL8mKz2caNG3f27NlgG//zn/+02+01NTW7du1Sr4DbsptuukmSpM8//zyiJYejTU+zhftaLJbLLrvM6XQG29jTM59++ql/F3Xt2lXy07Nnz7CfV6Q0NDRIkrRv3z6tCwEijABGTNu4caOiKGVlZb///e/z8/N79eqlXhrdX//+/RsaGhITE0Pc81tvvSVJ0vLlyyNXbPhCf5rB7ltfX//f//3f+fn506dPD6+GiooK9SppvXr1GjFihHr78OHD4e0NQKsIYOhA9+7dly5dWlBQcObMmWXLlgkh7r///uTkZHXYd8sttwiv4Z1Ht27dZsyYod52OBwmk2nDhg3qr2vXrnU4HCtWrPjqq69qamrUxszMTE96eW+/devW1NRUWZYTEhLUlk8//VSW5ccee0yW5dWrV/sXI4T405/+ZLfbZVkeNmxYSkrKkiVLAu6qhafp/SiJiYnBnovKbrdPnz49Nze3sLBQCPH+++9794anAG9LliwxmUxms3n27Nkt93/AHpAkadasWRaLxWQyrVq16rrrrpNl2Ww2r1692rPBmjVrzGaz90OE0ZlpaWlCiIEDBy5cuDDg8/LZQ8udDMSQwsJCja5GDLRC/N/wzqNXr159+vRRFCUjI+PBBx+sqKj4j//4DyFEQUFBfn6+EEJRFM+NZcuWJSYmqnd88MEHrVarZz85OTnDhw93uVxWq/X2229XG5cvX56QkKDeXrVqlc1mUxTl+PHjsiyPHz++rKxs8eLFkiQdPHhw586dkiT16dPnyJEjAYs5cOCAJEnz5s07fvy4miKLFy8OuKsWnqb3owR7Lp771tbWPvHEE7Isr1ixQlGU9957T+0EVXJy8uLFiz09s3PnTiFEz549v//++yeeeEKSpHXr1nk/umcE3EIPCCGGDh164MCByZMnCyH69et35MiRiRMnqv2mbtCrV6/9+/d7HiK8zqyvr/d8UgV8Xt57CNbJQKwpLCwkgBG7/JPpkksuycjI8NnMbDY/8cQT/gFcVVUlSdL27dsVRenZs+eVV16pbl9QUCCE2Llzp6IoU6dOTU5OVturq6slSXr77bcVRcnJybn66qsVRVm6dKl3cnft2vWXv/ylmi7PPvusf81qMbfddlt8fLynMTExcfHixQF31cLT9H6UYM/F5+/p3Nzc+vp6JbQArq6uVv/1wgsvzMvL82zsE8At9IDasn37diFEY2Ojoijbtm3zfghP+KkPEV5nhhLAnj0E62Qg1hQWFjIFDT0pLy9PSUkRQixcuLBr165ms1mSJKfTGfCIaXJy8oABAx588MFjx44dOXLk4YcfVtt/85vfCCFGjx4tSdKWLVvOnj27ZcsWIURiYmJeXt7DDz98+PDho0ePqiOwgwcPOhwOz6KkioqK4uJidT+/+tWv1Bv+xZSVlal1qmRZbnlXwZ6m51GCPRfhdQz4jTfeOHHiRG5uboid6Tlefs4555w+fTrYZq2WHRcXJ4SwWq1CiPj4eO9/6t27t/dDhNeZIT4ddQ+hdzKgOQIYulFUVHT48OEbbrjhvvvue/bZZ3/1q1/t3r27srJS/egPaPny5V9++eW9996blpY2bNgwIYTD4fjkk0/uuecez9+h55577n333aduf9ddd+3ateuuu+7KyMgYNGiQECI3N9czRFZ98cUX3g8RsJg+ffpUVlZ6tnE4HKHsyudptvpcvNnt9htuuGHJkiVHjx4VQlgsFiGEZ0W0y+Xyf6ATJ06oNw4fPpyVlRWsD0MsO6CioiLvhwivM721+rzaUy0QZQQwdKC8vPzPf/7z4MGDMzIyHnnkkQMHDiQnJ996661NTU3XXnutw+FQE87fLbfcYjKZXnzxxWnTpqkt/+///T8hxP333+/ZZvny5fv37z927JgQQl1V9Nprr82ZM0f91zvvvLOurm7KlCklJSVfffXVz3/+8yuuuML7IQIWc+eddzY2Nk6fPv3w4cNXXHGFOoxrdVc+T7PV5+LN4XC88847f/7zn7t16yaEUP96mD9/fnl5+bhx42pra/3vcumll/74449/+tOf9u/ff9dddwXr/FbLbsHkyZN/+OEHz0OE15l2u10IoeZoq8+rPdUC0cYxYMQs7zeq1WodP358bW2toiiHDh1SV8babLabbropLS3t+uuv9z8GrLrmmmskSTp58qT6a1pa2uWXX+7zQDabbdq0aertG264QZIkz/FRRVG2b9+emZkpSZIsy3369Pnoo4+8j4AGLEZRlCeffNJut0uSNHr0aPVQZcBdtfA0vR8l4HPxua8sy/379z906JD6T7/+9a9lWZZlWT3O7X8MeMWKFeq65fnz53s/is8x4FZ7IOBt9cZDDz2kLrT2PER4nXnppZcKIcaMGRPwefl0VMBOBmJNYWGhVFhYmJeX1xHRDsSCSZMmlZSU/OMf/9CwBpvNdtdddz300EPt3E8sPJcQffrpp6NHj1b8lokBUO3bt48paBjZm2++uWPHjrVr10b5cb/88suMjIwNGzaUl5fPmzfP4XD4H9NtK62eC4AOYta6AKBDOJ3OhIQEp9M5f/78K6+8MsqPnpeXN2bMmEWLFjU2NtpsthUrVgwZMiTsvWn7XAB0EKagAQCINqagAQDQBgEMAIAGCGAAADRAAAMAoAECGAAADRDAAABogAAGAEADBDAAABoggAEA0AABDACABghgAAA0QAADAKABsxBi3759WpcBAEDn8v8BHtbqOyCiys4AAAAASUVORK5CYII=" usemap="#/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00068"/>
+</div>
+</article>
+</section>
+<article id="IDX5" aria-label="Fit Plot">
+<h1 class="contentitem toc">Fit Plot</h1>
+<map id="/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00076" name="/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00076"><Area shape="poly" alt=" DailyAverageDryBulbTemperature = 83.23 
+ DailyCoolingDegreeDays = 18.84 
+ Count = 1" title=" DailyAverageDryBulbTemperature = 83.23 
+ DailyCoolingDegreeDays = 18.84 
+ Count = 1" coords="504,34,512,34,512,39,504,39,504,34,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 83.23 
+ DailyCoolingDegreeDays = 17.89 
+ Count = 5" title=" DailyAverageDryBulbTemperature = 83.23 
+ DailyCoolingDegreeDays = 17.89 
+ Count = 5" coords="504,46,512,46,512,51,504,51,504,46,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 81.66 
+ DailyCoolingDegreeDays = 16.94 
+ Count = 5" title=" DailyAverageDryBulbTemperature = 81.66 
+ DailyCoolingDegreeDays = 16.94 
+ Count = 5" coords="496,58,505,58,505,63,496,63,496,58,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 81.66 
+ DailyCoolingDegreeDays = 15.99 
+ Count = 16" title=" DailyAverageDryBulbTemperature = 81.66 
+ DailyCoolingDegreeDays = 15.99 
+ Count = 16" coords="496,70,505,70,505,75,496,75,496,70,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 80.10 
+ DailyCoolingDegreeDays = 15.04 
+ Count = 19" title=" DailyAverageDryBulbTemperature = 80.10 
+ DailyCoolingDegreeDays = 15.04 
+ Count = 19" coords="489,82,497,82,497,87,489,87,489,82,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 78.53 
+ DailyCoolingDegreeDays = 14.09 
+ Count = 52" title=" DailyAverageDryBulbTemperature = 78.53 
+ DailyCoolingDegreeDays = 14.09 
+ Count = 52" coords="482,94,490,94,490,99,482,99,482,94,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 78.53 
+ DailyCoolingDegreeDays = 13.14 
+ Count = 54" title=" DailyAverageDryBulbTemperature = 78.53 
+ DailyCoolingDegreeDays = 13.14 
+ Count = 54" coords="482,106,490,106,490,111,482,111,482,106,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 76.96 
+ DailyCoolingDegreeDays = 11.88 
+ Count = 92" title=" DailyAverageDryBulbTemperature = 76.96 
+ DailyCoolingDegreeDays = 11.88 
+ Count = 92" coords="474,122,483,122,483,127,474,127,474,122,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 75.40 
+ DailyCoolingDegreeDays = 10.93 
+ Count = 123" title=" DailyAverageDryBulbTemperature = 75.40 
+ DailyCoolingDegreeDays = 10.93 
+ Count = 123" coords="467,135,475,135,475,140,467,140,467,135,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 75.40 
+ DailyCoolingDegreeDays = 9.98 
+ Count = 155" title=" DailyAverageDryBulbTemperature = 75.40 
+ DailyCoolingDegreeDays = 9.98 
+ Count = 155" coords="467,147,475,147,475,152,467,152,467,147,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 73.83 
+ DailyCoolingDegreeDays = 9.02 
+ Count = 168" title=" DailyAverageDryBulbTemperature = 73.83 
+ DailyCoolingDegreeDays = 9.02 
+ Count = 168" coords="459,159,468,159,468,164,459,164,459,159,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 72.26 
+ DailyCoolingDegreeDays = 8.07 
+ Count = 189" title=" DailyAverageDryBulbTemperature = 72.26 
+ DailyCoolingDegreeDays = 8.07 
+ Count = 189" coords="452,171,460,171,460,176,452,176,452,171,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 72.26 
+ DailyCoolingDegreeDays = 7.12 
+ Count = 196" title=" DailyAverageDryBulbTemperature = 72.26 
+ DailyCoolingDegreeDays = 7.12 
+ Count = 196" coords="452,183,460,183,460,188,452,188,452,183,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 70.69 
+ DailyCoolingDegreeDays = 5.86 
+ Count = 206" title=" DailyAverageDryBulbTemperature = 70.69 
+ DailyCoolingDegreeDays = 5.86 
+ Count = 206" coords="445,199,453,199,453,204,445,204,445,199,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 70.69 
+ DailyCoolingDegreeDays = 4.91 
+ Count = 208" title=" DailyAverageDryBulbTemperature = 70.69 
+ DailyCoolingDegreeDays = 4.91 
+ Count = 208" coords="445,211,453,211,453,216,445,216,445,211,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 69.13 
+ DailyCoolingDegreeDays = 3.96 
+ Count = 221" title=" DailyAverageDryBulbTemperature = 69.13 
+ DailyCoolingDegreeDays = 3.96 
+ Count = 221" coords="437,223,446,223,446,228,437,228,437,223,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 67.56 
+ DailyCoolingDegreeDays = 3.01 
+ Count = 188" title=" DailyAverageDryBulbTemperature = 67.56 
+ DailyCoolingDegreeDays = 3.01 
+ Count = 188" coords="430,235,438,235,438,240,430,240,430,235,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 67.56 
+ DailyCoolingDegreeDays = 2.06 
+ Count = 169" title=" DailyAverageDryBulbTemperature = 67.56 
+ DailyCoolingDegreeDays = 2.06 
+ Count = 169" coords="430,247,438,247,438,252,430,252,430,247,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 65.99 
+ DailyCoolingDegreeDays = 1.11 
+ Count = 157" title=" DailyAverageDryBulbTemperature = 65.99 
+ DailyCoolingDegreeDays = 1.11 
+ Count = 157" coords="423,259,431,259,431,264,423,264,423,259,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 64.43 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 350" title=" DailyAverageDryBulbTemperature = 64.43 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 350" coords="415,271,424,271,424,276,415,276,415,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 62.86 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 137" title=" DailyAverageDryBulbTemperature = 62.86 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 137" coords="408,271,416,271,416,276,408,276,408,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 61.29 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 312" title=" DailyAverageDryBulbTemperature = 61.29 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 312" coords="400,271,409,271,409,276,400,276,400,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 59.72 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 269" title=" DailyAverageDryBulbTemperature = 59.72 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 269" coords="393,271,401,271,401,276,393,276,393,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 58.16 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 158" title=" DailyAverageDryBulbTemperature = 58.16 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 158" coords="386,271,394,271,394,276,386,276,386,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 56.59 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 304" title=" DailyAverageDryBulbTemperature = 56.59 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 304" coords="378,271,387,271,387,276,378,276,378,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 55.02 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 147" title=" DailyAverageDryBulbTemperature = 55.02 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 147" coords="371,271,379,271,379,276,371,276,371,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 53.46 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 297" title=" DailyAverageDryBulbTemperature = 53.46 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 297" coords="363,271,372,271,372,276,363,276,363,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 51.89 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 147" title=" DailyAverageDryBulbTemperature = 51.89 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 147" coords="356,271,364,271,364,276,356,276,356,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 50.32 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 299" title=" DailyAverageDryBulbTemperature = 50.32 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 299" coords="349,271,357,271,357,276,349,276,349,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 48.75 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 302" title=" DailyAverageDryBulbTemperature = 48.75 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 302" coords="341,271,350,271,350,276,341,276,341,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 47.19 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 162" title=" DailyAverageDryBulbTemperature = 47.19 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 162" coords="334,271,342,271,342,276,334,276,334,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 45.62 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 330" title=" DailyAverageDryBulbTemperature = 45.62 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 330" coords="326,271,335,271,335,276,326,276,326,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 44.05 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 161" title=" DailyAverageDryBulbTemperature = 44.05 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 161" coords="319,271,327,271,327,276,319,276,319,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 42.49 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 371" title=" DailyAverageDryBulbTemperature = 42.49 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 371" coords="312,271,320,271,320,276,312,276,312,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 40.92 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 166" title=" DailyAverageDryBulbTemperature = 40.92 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 166" coords="304,271,313,271,313,276,304,276,304,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 39.35 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 306" title=" DailyAverageDryBulbTemperature = 39.35 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 306" coords="297,271,305,271,305,276,297,276,297,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 37.78 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 358" title=" DailyAverageDryBulbTemperature = 37.78 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 358" coords="290,271,298,271,298,276,290,276,290,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 36.22 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 158" title=" DailyAverageDryBulbTemperature = 36.22 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 158" coords="282,271,291,271,291,276,282,276,282,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 34.65 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 294" title=" DailyAverageDryBulbTemperature = 34.65 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 294" coords="275,271,283,271,283,276,275,276,275,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 33.08 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 161" title=" DailyAverageDryBulbTemperature = 33.08 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 161" coords="267,271,276,271,276,276,267,276,267,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 31.51 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 254" title=" DailyAverageDryBulbTemperature = 31.51 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 254" coords="260,271,268,271,268,276,260,276,260,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 29.95 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 126" title=" DailyAverageDryBulbTemperature = 29.95 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 126" coords="253,271,261,271,261,276,253,276,253,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 28.38 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 199" title=" DailyAverageDryBulbTemperature = 28.38 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 199" coords="245,271,254,271,254,276,245,276,245,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 26.81 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 97" title=" DailyAverageDryBulbTemperature = 26.81 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 97" coords="238,271,246,271,246,276,238,276,238,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 25.25 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 150" title=" DailyAverageDryBulbTemperature = 25.25 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 150" coords="230,271,239,271,239,276,230,276,230,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 23.68 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 148" title=" DailyAverageDryBulbTemperature = 23.68 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 148" coords="223,271,231,271,231,276,223,276,223,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 22.11 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 47" title=" DailyAverageDryBulbTemperature = 22.11 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 47" coords="216,271,224,271,224,276,216,276,216,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 20.54 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 91" title=" DailyAverageDryBulbTemperature = 20.54 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 91" coords="208,271,217,271,217,276,208,276,208,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 18.98 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 51" title=" DailyAverageDryBulbTemperature = 18.98 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 51" coords="201,271,209,271,209,276,201,276,201,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 17.41 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 53" title=" DailyAverageDryBulbTemperature = 17.41 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 53" coords="194,271,202,271,202,276,194,276,194,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 15.84 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 24" title=" DailyAverageDryBulbTemperature = 15.84 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 24" coords="186,271,195,271,195,276,186,276,186,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 14.28 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 38" title=" DailyAverageDryBulbTemperature = 14.28 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 38" coords="179,271,187,271,187,276,179,276,179,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 12.71 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 30" title=" DailyAverageDryBulbTemperature = 12.71 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 30" coords="171,271,180,271,180,276,171,276,171,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 11.14 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 18" title=" DailyAverageDryBulbTemperature = 11.14 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 18" coords="164,271,172,271,172,276,164,276,164,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 9.57 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 21" title=" DailyAverageDryBulbTemperature = 9.57 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 21" coords="157,271,165,271,165,276,157,276,157,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 8.01 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 10" title=" DailyAverageDryBulbTemperature = 8.01 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 10" coords="149,271,158,271,158,276,149,276,149,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 6.44 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 14" title=" DailyAverageDryBulbTemperature = 6.44 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 14" coords="142,271,150,271,150,276,142,276,142,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 4.87 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 6" title=" DailyAverageDryBulbTemperature = 4.87 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 6" coords="134,271,143,271,143,276,134,276,134,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 1.74 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 7" title=" DailyAverageDryBulbTemperature = 1.74 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 7" coords="120,271,128,271,128,276,120,276,120,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = 0.17 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" title=" DailyAverageDryBulbTemperature = 0.17 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" coords="112,271,121,271,121,276,112,276,112,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -1.40 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 7" title=" DailyAverageDryBulbTemperature = -1.40 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 7" coords="105,271,113,271,113,276,105,276,105,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -2.96 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" title=" DailyAverageDryBulbTemperature = -2.96 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" coords="97,271,106,271,106,276,97,276,97,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -4.53 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 5" title=" DailyAverageDryBulbTemperature = -4.53 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 5" coords="90,271,98,271,98,276,90,276,90,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -7.66 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" title=" DailyAverageDryBulbTemperature = -7.66 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 2" coords="75,271,84,271,84,276,75,276,75,271,"/>
+<Area shape="poly" alt=" DailyAverageDryBulbTemperature = -9.23 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 1" title=" DailyAverageDryBulbTemperature = -9.23 
+ DailyCoolingDegreeDays = 0.16 
+ Count = 1" coords="68,271,76,271,76,276,68,276,68,271,"/>
+</map>
+<div class="c">
+<img style="height: 480px; width: 640px" alt="Heat map of DailyCoolingDegreeDays by DailyAverageDryBulbTemperature overlaid with the fit line." src="data:image/png;base64,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" usemap="#/saswork/SAS_work17700001DF07_odaws03-usw2.oda.sas.com/#LN00076"/>
+</div>
+</article>
+</section>
+</section>
+</section>
+</section>
+</div>
+</body>
+</html>
